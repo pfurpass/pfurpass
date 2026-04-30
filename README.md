@@ -2,8 +2,9 @@
     <img width=300 src="https://media.tenor.com/EA22nY9lDbcAAAAi/penguin-penguin-dancing.gif"/>    
     <br/>
     <br/>
-    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Itim&size=40&duration=2000&pause=3000&color=E0DFF1&center=true&repeat=false&width=600&height=60&lines=Hey+there%2C+wanderer!+I'm+Phillip!" alt="Typing SVG" /></a>
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Itim&size=40&duration=3000&pause=3000&color=E0DFF1&center=true&repeat=false&width=600&height=60&lines=Hey+there%2C+wanderer!+I'm+Phillip!" alt="Typing SVG" /></a>
 </div>
+
 
 <div align="center">
     <a href="https://github.com/pfurpass"><img src="https://img.shields.io/badge/-GitHub-f5e0dc?style=for-the-badge&logo=github&logoColor=181717" alt="GitHub"/></a>
@@ -140,7 +141,7 @@ If you'd like to support my open-source work, you can star my repositories ⭐ o
     <div align="center">
         <img src="https://streak-stats.demolab.com?user=pfurpass&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak"/>
         <br/><br/>
-        <img src="https://komarev.com/ghpvc/?username=pfurpass&label=Profile%20Views&color=00abf0&style=for-the-badge" alt="Profile Views"/>
+        <img src="https://visitcount.itsvg.in/api?id=pfurpass&label=Profile%20Views&color=12&icon=5&pretty=true" alt="Profile Views"/>
     </div>
 </details>
 
