@@ -137,11 +137,11 @@ If you'd like to support my open-source work, you can star my repositories ⭐ o
 </details>
 
 <details open>
-<summary><h2>🔥 Streak & Visitors</h2></summary>
+<summary><h2>🔥 Streak & Besucher</h2></summary>
     <div align="center">
-        <img src="https://streak-stats.demolab.com?user=pfurpass&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak"/>
+        <img src="https://streak-stats.demolab.com?user=pfurpass&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D&locale=en" alt="GitHub Streak"/>
         <br/><br/>
-        <img src="https://visitcount.itsvg.in/api?id=pfurpass&label=Profile%20Views&color=12&icon=5&pretty=true" alt="Profile Views"/>
+        <img src="https://komarev.com/ghpvc/?username=pfurpass&label=Profilaufrufe&color=00abf0&style=for-the-badge" alt="Profilaufrufe"/>
     </div>
 </details>
 
