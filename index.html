@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Software-Hub — Developer Portfolio</title>
+  <title>Software-Hub — AI Brick Recognition & Counting System</title>
+  <meta name="description" content="Software-Hub develops an AI-powered Brick Recognition & Counting System for automated visual inventory workflows." />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,7 +15,7 @@
       --bg-card-hover: #16161f;
       --border: #1e1e2a;
       --text: #e4e4ef;
-      --text-dim: #7a7a8e;
+      --text-dim: #8c8ca3;
       --accent: #6c5ce7;
       --accent-glow: rgba(108, 92, 231, 0.15);
       --accent2: #00cec9;
@@ -36,7 +37,6 @@
 
     ::selection { background: var(--accent); color: #fff; }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1.25rem 2rem;
@@ -45,8 +45,8 @@
       -webkit-backdrop-filter: blur(20px) saturate(1.4);
       background: rgba(10, 10, 15, 0.75);
       border-bottom: 1px solid var(--border);
-      transition: all 0.3s ease;
     }
+
     .nav-logo {
       font-family: var(--font-mono);
       font-weight: 700; font-size: 1.15rem;
@@ -55,6 +55,7 @@
       background-clip: text;
       letter-spacing: -0.02em;
     }
+
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       text-decoration: none; color: var(--text-dim);
@@ -63,34 +64,33 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ─── HERO ─── */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      position: relative; padding: 6rem 2rem 4rem;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 7rem 2rem 4rem;
     }
-    .hero-bg {
-      position: absolute; inset: 0; overflow: hidden; z-index: 0;
-    }
+
+    .hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
     .hero-bg::before {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
+      width: 650px; height: 650px;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      top: 10%; left: -10%;
+      top: 8%; left: -12%;
       animation: float1 12s ease-in-out infinite;
     }
     .hero-bg::after {
       content: '';
       position: absolute;
-      width: 500px; height: 500px;
+      width: 520px; height: 520px;
       background: radial-gradient(circle, var(--accent2-glow) 0%, transparent 70%);
-      bottom: 10%; right: -5%;
+      bottom: 8%; right: -8%;
       animation: float2 15s ease-in-out infinite;
     }
     @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(60px, 40px); } }
     @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-40px, -50px); } }
 
-    .hero-content { position: relative; z-index: 1; max-width: 800px; text-align: center; }
+    .hero-content { position: relative; z-index: 1; max-width: 980px; text-align: center; }
     .hero-tag {
       display: inline-block;
       font-family: var(--font-mono); font-size: 0.8rem;
@@ -101,34 +101,35 @@
       background: var(--accent-glow);
     }
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(2.6rem, 7vw, 5.7rem);
       font-weight: 800; line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
     }
-    .hero h1 .gradient-text {
+    .gradient-text {
       background: var(--gradient);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero p {
-      font-size: 1.15rem; color: var(--text-dim);
-      max-width: 560px; margin: 0 auto 2.5rem;
+      font-size: 1.18rem; color: var(--text-dim);
+      max-width: 760px; margin: 0 auto 2.5rem;
       font-weight: 300; line-height: 1.7;
     }
+    .hero-cta-wrap { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
     .hero-cta {
       display: inline-flex; align-items: center; gap: 0.6rem;
       padding: 0.9rem 2rem;
-      background: var(--gradient);
       color: #fff; text-decoration: none;
       border-radius: 8px; font-weight: 600; font-size: 0.9rem;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 4px 25px var(--accent-glow);
+      transition: transform 0.2s, box-shadow 0.3s, border-color 0.3s;
     }
+    .hero-cta.primary { background: var(--gradient); box-shadow: 0 4px 25px var(--accent-glow); }
+    .hero-cta.secondary { background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text); }
     .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(108,92,231,0.3); }
+    .hero-cta.secondary:hover { border-color: rgba(0,206,201,0.35); }
     .hero-cta svg { width: 18px; height: 18px; }
 
-    /* ─── SECTIONS ─── */
     section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
     .section-label {
       font-family: var(--font-mono); font-size: 0.75rem;
@@ -142,16 +143,25 @@
     }
     .section-desc {
       color: var(--text-dim); font-size: 1.05rem; font-weight: 300;
-      max-width: 600px; margin-bottom: 3rem; line-height: 1.7;
+      max-width: 760px; margin-bottom: 3rem; line-height: 1.7;
     }
 
-    /* ─── SERVICES / SKILLS ─── */
-    .services-grid {
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(108,92,231,0.12), rgba(0,206,201,0.08));
+      border: 1px solid rgba(108,92,231,0.28);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .highlight-card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .highlight-card p { color: var(--text-dim); font-weight: 300; line-height: 1.75; }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.25rem;
     }
-    .service-card {
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -159,15 +169,15 @@
       transition: all 0.35s ease;
       position: relative; overflow: hidden;
     }
-    .service-card::before {
+    .card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: var(--gradient);
       opacity: 0; transition: opacity 0.35s;
     }
-    .service-card:hover { background: var(--bg-card-hover); border-color: rgba(108,92,231,0.25); transform: translateY(-3px); }
-    .service-card:hover::before { opacity: 1; }
-    .service-icon {
+    .card:hover { background: var(--bg-card-hover); border-color: rgba(108,92,231,0.25); transform: translateY(-3px); }
+    .card:hover::before { opacity: 1; }
+    .card-icon {
       width: 44px; height: 44px;
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
@@ -176,50 +186,14 @@
       color: var(--accent);
       font-size: 1.3rem;
     }
-    .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .service-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+    .card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; }
 
-    /* ─── PROJECTS ─── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem;
-      transition: all 0.35s ease;
-      position: relative;
-    }
-    .project-card:hover { background: var(--bg-card-hover); border-color: rgba(0,206,201,0.25); transform: translateY(-3px); }
-    .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
-    .project-header h3 { font-size: 1.1rem; font-weight: 600; }
-    .project-lang {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 100px;
-      background: var(--accent2-glow);
-      color: var(--accent2);
-      border: 1px solid rgba(0,206,201,0.2);
-      white-space: nowrap;
-    }
-    .project-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.25rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .project-tags span {
-      font-family: var(--font-mono); font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 4px; color: var(--text-dim);
-    }
-
-    /* ─── TECH STACK ─── */
     .tech-marquee {
       overflow: hidden; padding: 2.5rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      margin: 4rem 0;
+      margin: 2rem 0 4rem;
       position: relative;
     }
     .tech-marquee::before, .tech-marquee::after {
@@ -239,38 +213,42 @@
       font-size: 0.85rem; color: var(--text-dim);
       white-space: nowrap;
       display: flex; align-items: center; gap: 0.5rem;
-      transition: color 0.2s;
     }
-    .tech-item:hover { color: var(--text); }
-    .tech-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); display: inline-block;
-    }
+    .tech-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
 
-    /* ─── ABOUT ─── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    .product-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .about-text p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat-card {
+    .flow-step {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.5rem; text-align: center;
+      border-radius: 12px;
+      padding: 1.4rem;
     }
-    .stat-number {
-      font-size: 2rem; font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .flow-step span { font-family: var(--font-mono); color: var(--accent2); font-size: 0.8rem; }
+    .flow-step h3 { margin: 0.5rem 0; font-size: 1rem; }
+    .flow-step p { color: var(--text-dim); font-size: 0.86rem; line-height: 1.6; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+    .project-tags span {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text-dim);
     }
+
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .stat-number { font-size: 2rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .stat-label { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.3rem; }
 
-    /* ─── CONTACT ─── */
-    .contact-section {
-      text-align: center; padding: 6rem 2rem 8rem;
-      position: relative;
-    }
+    .contact-section { text-align: center; padding: 6rem 2rem 8rem; }
     .contact-section .section-desc { margin-left: auto; margin-right: auto; }
     .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
     .contact-btn {
@@ -280,286 +258,252 @@
       font-size: 0.88rem; font-weight: 500;
       transition: all 0.25s;
     }
-    .contact-btn.primary {
-      background: var(--gradient); color: #fff;
-      box-shadow: 0 4px 25px var(--accent-glow);
-    }
+    .contact-btn.primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 25px var(--accent-glow); }
     .contact-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(108,92,231,0.3); }
-    .contact-btn.secondary {
-      background: var(--bg-card); color: var(--text);
-      border: 1px solid var(--border);
-    }
+    .contact-btn.secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
     .contact-btn.secondary:hover { border-color: rgba(108,92,231,0.4); background: var(--bg-card-hover); }
     .contact-btn svg { width: 18px; height: 18px; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      text-align: center; padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.78rem; color: var(--text-dim);
-      font-family: var(--font-mono);
-    }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono); }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
+    @media (max-width: 900px) {
+      .product-flow { grid-template-columns: 1fr 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      section { padding: 4rem 1.25rem; }
-      .services-grid, .projects-grid { grid-template-columns: 1fr; }
     }
 
-    /* ─── FADE-IN ANIMATION ─── */
-    .fade-in {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.25rem; }
+      .grid { grid-template-columns: 1fr; }
+      .product-flow { grid-template-columns: 1fr; }
+      .hero p { font-size: 1.02rem; }
     }
+
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Software-Hub</div>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#product">Product</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#aws">AWS Use Case</a></li>
+    <li><a href="#company">Company</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <span class="hero-tag">// Full-Stack Developer &amp; Systems Engineer</span>
-    <h1>Building <span class="gradient-text">systems</span> that matter.</h1>
-    <p>Developer aus Österreich — von Web-Applikationen über Custom Hypervisors bis hin zu Minecraft-Netzwerken. Ich baue, was gebraucht wird.</p>
-    <a href="#projects" class="hero-cta">
-      Projekte ansehen
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-    </a>
+    <span class="hero-tag">// AI Recognition Startup from Austria</span>
+    <h1>AI-powered <span class="gradient-text">brick recognition</span> for faster inventory workflows.</h1>
+    <p>Software-Hub develops an AI-based Brick Recognition &amp; Counting System that detects, counts and classifies mixed plastic building bricks from camera images. The goal is to help collectors, resellers and small businesses automate sorting and inventory workflows.</p>
+    <div class="hero-cta-wrap">
+      <a href="#product" class="hero-cta primary">
+        View product
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="mailto:office@software-hub.org" class="hero-cta secondary">Contact us</a>
+    </div>
   </div>
 </section>
 
-<!-- TECH MARQUEE -->
 <div class="tech-marquee">
   <div class="tech-track">
-    <span class="tech-item"><span class="tech-dot"></span>Laravel</span>
-    <span class="tech-item"><span class="tech-dot"></span>PHP</span>
-    <span class="tech-item"><span class="tech-dot"></span>Java</span>
-    <span class="tech-item"><span class="tech-dot"></span>Netty</span>
-    <span class="tech-item"><span class="tech-dot"></span>Go</span>
-    <span class="tech-item"><span class="tech-dot"></span>C</span>
-    <span class="tech-item"><span class="tech-dot"></span>Node.js</span>
-    <span class="tech-item"><span class="tech-dot"></span>Docker</span>
-    <span class="tech-item"><span class="tech-dot"></span>QEMU/KVM</span>
-    <span class="tech-item"><span class="tech-dot"></span>Keycloak</span>
-    <span class="tech-item"><span class="tech-dot"></span>Electron</span>
-    <span class="tech-item"><span class="tech-dot"></span>Tailwind CSS</span>
-    <span class="tech-item"><span class="tech-dot"></span>PostgreSQL</span>
-    <span class="tech-item"><span class="tech-dot"></span>Linux</span>
-    <span class="tech-item"><span class="tech-dot"></span>AVX-512 / SIMD</span>
-    <span class="tech-item"><span class="tech-dot"></span>Spring Boot</span>
-    <!-- duplicate for seamless loop -->
-    <span class="tech-item"><span class="tech-dot"></span>Laravel</span>
-    <span class="tech-item"><span class="tech-dot"></span>PHP</span>
-    <span class="tech-item"><span class="tech-dot"></span>Java</span>
-    <span class="tech-item"><span class="tech-dot"></span>Netty</span>
-    <span class="tech-item"><span class="tech-dot"></span>Go</span>
-    <span class="tech-item"><span class="tech-dot"></span>C</span>
-    <span class="tech-item"><span class="tech-dot"></span>Node.js</span>
-    <span class="tech-item"><span class="tech-dot"></span>Docker</span>
-    <span class="tech-item"><span class="tech-dot"></span>QEMU/KVM</span>
-    <span class="tech-item"><span class="tech-dot"></span>Keycloak</span>
-    <span class="tech-item"><span class="tech-dot"></span>Electron</span>
-    <span class="tech-item"><span class="tech-dot"></span>Tailwind CSS</span>
-    <span class="tech-item"><span class="tech-dot"></span>PostgreSQL</span>
-    <span class="tech-item"><span class="tech-dot"></span>Linux</span>
-    <span class="tech-item"><span class="tech-dot"></span>AVX-512 / SIMD</span>
-    <span class="tech-item"><span class="tech-dot"></span>Spring Boot</span>
+    <span class="tech-item"><span class="tech-dot"></span>Computer Vision</span>
+    <span class="tech-item"><span class="tech-dot"></span>Machine Learning</span>
+    <span class="tech-item"><span class="tech-dot"></span>Image Processing</span>
+    <span class="tech-item"><span class="tech-dot"></span>Serverless APIs</span>
+    <span class="tech-item"><span class="tech-dot"></span>Object Storage</span>
+    <span class="tech-item"><span class="tech-dot"></span>Databases</span>
+    <span class="tech-item"><span class="tech-dot"></span>Containers</span>
+    <span class="tech-item"><span class="tech-dot"></span>Monitoring</span>
+    <span class="tech-item"><span class="tech-dot"></span>Scalable Processing</span>
+    <span class="tech-item"><span class="tech-dot"></span>Computer Vision</span>
+    <span class="tech-item"><span class="tech-dot"></span>Machine Learning</span>
+    <span class="tech-item"><span class="tech-dot"></span>Image Processing</span>
+    <span class="tech-item"><span class="tech-dot"></span>Serverless APIs</span>
+    <span class="tech-item"><span class="tech-dot"></span>Object Storage</span>
+    <span class="tech-item"><span class="tech-dot"></span>Databases</span>
+    <span class="tech-item"><span class="tech-dot"></span>Containers</span>
+    <span class="tech-item"><span class="tech-dot"></span>Monitoring</span>
+    <span class="tech-item"><span class="tech-dot"></span>Scalable Processing</span>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section id="services">
-  <p class="section-label fade-in">// Was ich mache</p>
-  <h2 class="section-title fade-in">Services</h2>
-  <p class="section-desc fade-in">Von Enterprise-Webapps bis Low-Level-Optimierung — ich bewege mich über den ganzen Stack.</p>
+<section id="product">
+  <p class="section-label fade-in">// Product</p>
+  <h2 class="section-title fade-in">Brick Recognition &amp; Counting System</h2>
+  <p class="section-desc fade-in">The product is designed to turn camera images of mixed building bricks into structured inventory data. Instead of manually counting parts, users can upload or capture images and receive detected objects, estimated quantities and classification results.</p>
 
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-icon">⚡</div>
-      <h3>Full-Stack Web Development</h3>
-      <p>Interne Webapplikationen mit Laravel, PHP, Tailwind CSS und modernen Frontend-Technologien. Von Architektur bis Deployment.</p>
+  <div class="highlight-card fade-in">
+    <h3>Current MVP focus</h3>
+    <p>We are building the first version of the recognition pipeline: image capture, preprocessing, object detection, duplicate-safe counting, part classification, result correction and exportable inventory data. The first target is a practical MVP for real-world brick sorting workflows.</p>
+  </div>
+
+  <div class="product-flow">
+    <div class="flow-step fade-in">
+      <span>01</span>
+      <h3>Capture</h3>
+      <p>Images are captured from a fixed camera setup or uploaded through a web interface.</p>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🔧</div>
-      <h3>Systems &amp; Infrastructure</h3>
-      <p>Custom Hypervisors, Docker-Orchestrierung, Virtualisierung mit QEMU/KVM und Open vSwitch. Infrastruktur, die funktioniert.</p>
+    <div class="flow-step fade-in">
+      <span>02</span>
+      <h3>Detect</h3>
+      <p>The system detects visible brick parts and separates them from the background.</p>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🔐</div>
-      <h3>Identity &amp; Auth</h3>
-      <p>SSO-Integration mit Keycloak, OAuth2/OIDC-Flows, PKCE, Session-Management und sichere Authentifizierungsarchitekturen.</p>
+    <div class="flow-step fade-in">
+      <span>03</span>
+      <h3>Count</h3>
+      <p>Detected parts are counted while avoiding duplicate counting across processing steps.</p>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🎮</div>
-      <h3>Game Infrastructure</h3>
-      <p>Minecraft-Proxies, Cloud-Systeme, Custom Plugins und Server-Netzwerke. Hochperformant und skalierbar.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🖥️</div>
-      <h3>Desktop Applications</h3>
-      <p>Native Desktop-Apps mit Electron — SSO-Integration, Custom Protocols und plattformübergreifende Builds.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">⚙️</div>
-      <h3>Performance Engineering</h3>
-      <p>Low-Level-Optimierung mit SIMD (AVX-512/AVX2), Multi-Threading und algorithmische Optimierungen in C und Go.</p>
+    <div class="flow-step fade-in">
+      <span>04</span>
+      <h3>Export</h3>
+      <p>Results are converted into structured inventory data for dashboards, APIs or CSV exports.</p>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="section-label fade-in">// Projekte</p>
-  <h2 class="section-title fade-in">Ausgewählte Arbeiten</h2>
-  <p class="section-desc fade-in">Einige Projekte, an denen ich gearbeitet habe — von Enterprise bis Open Source.</p>
+<section id="technology">
+  <p class="section-label fade-in">// Technology</p>
+  <h2 class="section-title fade-in">Technology areas</h2>
+  <p class="section-desc fade-in">Software-Hub combines software engineering, computer vision and cloud infrastructure to build a scalable recognition workflow.</p>
 
-  <div class="projects-grid">
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Termgotchi</h3>
-        <span class="project-lang">Python</span>
-      </div>
-      <p>Ein virtuelles Haustier im Tamagotchi-Stil, das in deinem Terminal lebt und den Zustand deines Servers anzeigt.</p>
-      <div class="project-tags">
-        <span>Python</span>
-      </div>
+  <div class="grid">
+    <div class="card fade-in">
+      <div class="card-icon">👁️</div>
+      <h3>Computer Vision</h3>
+      <p>Detection and classification of plastic building bricks from images using image preprocessing and ML-based recognition.</p>
+      <div class="project-tags"><span>Object Detection</span><span>Image Processing</span><span>Classification</span></div>
     </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Custom Hypervisor</h3>
-        <span class="project-lang">Node.js</span>
-      </div>
-      <p>VMware-ähnlicher Hypervisor mit REST API — Virtual Switches, TAP Interfaces, NAT/iptables, VLANs, QEMU/KVM VM Lifecycle und qcow2 Snapshots.</p>
-      <div class="project-tags">
-        <span>QEMU/KVM</span><span>Open vSwitch</span><span>VXLAN</span><span>QMP</span><span>REST API</span>
-      </div>
+    <div class="card fade-in">
+      <div class="card-icon">🧠</div>
+      <h3>Machine Learning</h3>
+      <p>Model experiments, dataset preparation, evaluation and iterative training for better recognition quality.</p>
+      <div class="project-tags"><span>ML</span><span>Training</span><span>Evaluation</span></div>
     </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Minecraft Proxy</h3>
-        <span class="project-lang">Java / Netty</span>
-      </div>
-      <p>Custom Minecraft Proxy Server mit Netty — Plugin API, Event-System, Tab-List Management, SQLite Permissions und JLine Console.</p>
-      <div class="project-tags">
-        <span>Netty</span><span>Protocol 774</span><span>SQLite</span><span>JLine</span><span>Plugin API</span>
-      </div>
+    <div class="card fade-in">
+      <div class="card-icon">☁️</div>
+      <h3>Cloud Architecture</h3>
+      <p>Scalable APIs, storage and asynchronous processing pipelines for image uploads and recognition jobs.</p>
+      <div class="project-tags"><span>APIs</span><span>Queues</span><span>Storage</span></div>
     </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Minecraft Cloud System</h3>
-        <span class="project-lang">Go</span>
-      </div>
-      <p>Cloud-Orchestrierung für Minecraft-Server — sub-3s Starts via Docker, Template-System, Velocity Proxy Integration und interaktive REPL Console.</p>
-      <div class="project-tags">
-        <span>Go</span><span>Docker SDK</span><span>gRPC</span><span>Velocity</span><span>Templates</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Seed Search Tool</h3>
-        <span class="project-lang">C</span>
-      </div>
-      <p>Hochperformanter Minecraft 1.16 Seed-Sucher mit AVX-512/AVX2 SIMD, pthreads und reverse-engineerter Java LCG-Mathematik.</p>
-      <div class="project-tags">
-        <span>AVX-512</span><span>SIMD</span><span>pthreads</span><span>LCG</span><span>Brute Force</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h3>Keycloak Guacamole</h3>
-        <span class="project-lang">Docker</span>
-      </div>
-      <p>Guacamole + Keycloak SSO — Auto-Connect</p>
-      <div class="project-tags">
-        <span>Dockerfile</span>
-      </div>
+    <div class="card fade-in">
+      <div class="card-icon">📊</div>
+      <h3>Inventory Dashboard</h3>
+      <p>A web interface for reviewing detections, correcting results and exporting structured inventory data.</p>
+      <div class="project-tags"><span>Dashboard</span><span>CSV Export</span><span>Review UI</span></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label fade-in">// Über mich</p>
-  <h2 class="section-title fade-in">About</h2>
+<section id="aws">
+  <p class="section-label fade-in">// AWS Use Case</p>
+  <h2 class="section-title fade-in">Why we plan to use AWS</h2>
+  <p class="section-desc fade-in">AWS credits would help us build and test the MVP infrastructure without overcommitting early-stage startup budget. The architecture is planned around scalable image processing, serverless APIs, data storage and monitoring.</p>
+
+  <div class="grid">
+    <div class="card fade-in">
+      <div class="card-icon">🗂️</div>
+      <h3>Image &amp; dataset storage</h3>
+      <p>Store uploaded images, generated annotations, model outputs and inventory exports in a structured way.</p>
+      <div class="project-tags"><span>Amazon S3</span><span>Lifecycle Rules</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">⚡</div>
+      <h3>Serverless backend</h3>
+      <p>Run lightweight API and job-triggering logic for uploads, result retrieval and user workflows.</p>
+      <div class="project-tags"><span>AWS Lambda</span><span>API Gateway</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🧪</div>
+      <h3>Model experiments</h3>
+      <p>Test AI and ML workflows for recognition, classification and future model improvements.</p>
+      <div class="project-tags"><span>Amazon Bedrock</span><span>ML Workflows</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🛢️</div>
+      <h3>Application data</h3>
+      <p>Store users, recognition jobs, correction history and inventory result metadata.</p>
+      <div class="project-tags"><span>Amazon RDS</span><span>PostgreSQL</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📦</div>
+      <h3>Containerized processing</h3>
+      <p>Package heavier recognition jobs as containers for repeatable processing and future scaling.</p>
+      <div class="project-tags"><span>Containers</span><span>ECR</span><span>ECS</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📈</div>
+      <h3>Monitoring &amp; cost control</h3>
+      <p>Track system health, application logs and AWS spending while the MVP is developed.</p>
+      <div class="project-tags"><span>CloudWatch</span><span>AWS Budgets</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="customers">
+  <p class="section-label fade-in">// Customers</p>
+  <h2 class="section-title fade-in">Target customers</h2>
+  <p class="section-desc fade-in">The first target market is people and small businesses that handle many mixed building bricks and need faster counting, sorting and inventory preparation.</p>
+
+  <div class="grid">
+    <div class="card fade-in"><div class="card-icon">🧱</div><h3>Collectors</h3><p>Private collectors who want to organize, identify and count mixed parts faster.</p></div>
+    <div class="card fade-in"><div class="card-icon">🏪</div><h3>Resellers</h3><p>Small resellers who need structured inventory data for used brick lots.</p></div>
+    <div class="card fade-in"><div class="card-icon">📦</div><h3>Sorting workflows</h3><p>Workflows where parts are poured onto a fixed background and analyzed by camera.</p></div>
+  </div>
+</section>
+
+<section id="company">
+  <p class="section-label fade-in">// Company</p>
+  <h2 class="section-title fade-in">About Software-Hub</h2>
 
   <div class="about-grid fade-in">
     <div class="about-text">
-      <p>Ich bin Phillip — Developer in der Steiermark, Österreich.</p>
-      <p>Nebenbei treibe ich mich gerne in den tieferen Schichten des Stacks herum: eigene Hypervisors, Minecraft-Netzwerke, Kernel-nahe Optimierungen in C und Cloud-Orchestrierung in Go.</p>
-      <p>Ich bevorzuge pragmatische, minimale Lösungen gegenüber Over-Engineering. Wenn etwas in 10 Zeilen geht, schreibe ich keine 100.</p>
+      <p>Software-Hub is an early-stage software project based in Styria, Austria. We develop custom software solutions and are currently focused on an AI-powered Brick Recognition &amp; Counting System.</p>
+      <p>The project is in MVP development. Our technical background includes full-stack web development, backend systems, cloud infrastructure, container workflows and performance-focused software engineering.</p>
+      <p>For inquiries, partnership discussions or technical questions, contact us at <strong>office@software-hub.org</strong>.</p>
     </div>
     <div class="about-stats">
-      <div class="stat-card">
-        <div class="stat-number">6+</div>
-        <div class="stat-label">Programmiersprachen</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Projekte</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">∞</div>
-        <div class="stat-label">Seeds gecruncht</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">AT</div>
-        <div class="stat-label">Steiermark, Österreich</div>
-      </div>
+      <div class="stat-card"><div class="stat-number">AT</div><div class="stat-label">Austria</div></div>
+      <div class="stat-card"><div class="stat-number">MVP</div><div class="stat-label">Product stage</div></div>
+      <div class="stat-card"><div class="stat-number">AI</div><div class="stat-label">Recognition focus</div></div>
+      <div class="stat-card"><div class="stat-number">B2B</div><div class="stat-label">Reseller workflows</div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <p class="section-label fade-in">// Let's talk</p>
-  <h2 class="section-title fade-in">Kontakt</h2>
-  <p class="section-desc fade-in">Interesse an einer Zusammenarbeit oder einem Projekt? Schreib mir.</p>
+  <p class="section-label fade-in">// Contact</p>
+  <h2 class="section-title fade-in">Let’s build the MVP</h2>
+  <p class="section-desc fade-in">Interested in the Brick Recognition &amp; Counting System, cloud infrastructure or a collaboration? Contact Software-Hub.</p>
 
   <div class="contact-links fade-in">
-    <a href="https://github.com/Software-Hub" target="_blank" class="contact-btn primary">
+    <a href="mailto:office@software-hub.org" class="contact-btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      office@software-hub.org
+    </a>
+    <a href="https://github.com/Software-Hub" target="_blank" class="contact-btn secondary">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
-    <a href="mailto:office@software-hub.org" class="contact-btn secondary">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      E-Mail
-    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 Software-Hub — Built with purpose, not bloat.</p>
+  <p>&copy; 2026 Software-Hub — AI-powered recognition systems from Austria.</p>
 </footer>
 
 <script>
-  // Scroll-triggered fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
