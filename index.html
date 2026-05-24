@@ -269,6 +269,26 @@
       padding: 1rem;
     }
     .mockup-result { display: grid; gap: 0.75rem; }
+    .prototype-image-wrap {
+      margin-top: 2rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(0,206,201,0.22);
+      border-radius: 18px;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .prototype-image-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .prototype-caption {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
     .result-row {
       display: flex; align-items: center; justify-content: space-between;
       gap: 1rem;
@@ -478,6 +498,10 @@
       </div>
     </div>
   </div>
+  <div class="prototype-image-wrap fade-in">
+    <img src="assets/brick-detection-prototype.jpg" alt="Prototype test showing detected brick parts with bounding boxes and estimated counts" />
+    <p class="prototype-caption">Prototype detection output: early test images with bounding boxes around visible brick parts and estimated object counts per image. This supports the MVP recognition pipeline and will be improved with better datasets, classification and duplicate-safe counting.</p>
+  </div>
 </section>
 
 <section id="technology">
@@ -613,18 +637,18 @@
 <section id="imprint">
   <p class="section-label fade-in">// Imprint</p>
   <h2 class="section-title fade-in">Legal notice</h2>
-  <p class="section-desc fade-in">This legal notice provides basic contact and operator information for Software-Hub.</p>
+  <p class="section-desc fade-in">This imprint provides basic contact and operator information for Software-Hub.</p>
 
   <div class="grid">
     <div class="card fade-in">
       <div class="card-icon">🏢</div>
       <h3>Operator</h3>
-      <p>Software-Hub<br />Styria, Austria</p>
+      <p>Software-Hub<br />Phillip Fürpaß<br />Styria, Austria</p>
     </div>
     <div class="card fade-in">
       <div class="card-icon">📍</div>
       <h3>Address</h3>
-      <p>Farch 2a<br />8741 Weißkirchen<br />Austria</p>
+      <p>[Street and house number]<br />[Postal code] [City]<br />Austria</p>
     </div>
     <div class="card fade-in">
       <div class="card-icon">✉️</div>
@@ -634,7 +658,7 @@
     <div class="card fade-in">
       <div class="card-icon">⚖️</div>
       <h3>Responsibility for content</h3>
-      <p>Responsible for the content of this website: Software-Hub. The information on this website describes an early-stage MVP project and may be updated as the product develops.</p>
+      <p>Responsible for the content of this website: Phillip Fürpaß. The information on this website describes an early-stage MVP project and may be updated as the product develops.</p>
     </div>
   </div>
 </section>
@@ -642,7 +666,7 @@
 <section id="legal">
   <p class="section-label fade-in">// Legal & Contact</p>
   <h2 class="section-title fade-in">Company information</h2>
-  <p class="section-desc fade-in">Software-Hub is operated from Styria, Austria. For business inquiries, product questions, please contact us by email.</p>
+  <p class="section-desc fade-in">Software-Hub is operated from Styria, Austria. For business inquiries, product questions or AWS-related verification, please contact us by email.</p>
 
   <div class="grid">
     <div class="card fade-in">
