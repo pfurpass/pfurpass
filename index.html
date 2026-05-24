@@ -222,6 +222,83 @@
       gap: 1rem;
       margin-top: 2rem;
     }
+
+    .mockup-shell {
+      background: var(--bg-card);
+      border: 1px solid rgba(108,92,231,0.28);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    }
+    .mockup-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .mockup-dots { display: flex; gap: 0.4rem; }
+    .mockup-dots span { width: 9px; height: 9px; border-radius: 999px; background: rgba(255,255,255,0.16); }
+    .mockup-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      padding: 1.5rem;
+    }
+    .mockup-panel {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .mockup-panel h3 { font-size: 1rem; margin-bottom: 0.8rem; }
+    .mockup-upload {
+      min-height: 210px;
+      border: 1px dashed rgba(108,92,231,0.45);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-dim);
+      background: linear-gradient(135deg, rgba(108,92,231,0.07), rgba(0,206,201,0.05));
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 1rem;
+    }
+    .mockup-result { display: grid; gap: 0.75rem; }
+    .result-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+    .result-row strong { color: var(--text); }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent2-glow);
+      border: 1px solid rgba(0,206,201,0.2);
+      color: var(--accent2);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      white-space: nowrap;
+    }
+    .roadmap-list { display: grid; gap: 1rem; }
+    .roadmap-item {
+      border-left: 2px solid rgba(108,92,231,0.65);
+      padding-left: 1rem;
+    }
+    .roadmap-item h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+    .roadmap-item p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; }
     .flow-step {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -268,6 +345,7 @@
 
     @media (max-width: 900px) {
       .product-flow { grid-template-columns: 1fr 1fr; }
+      .mockup-content { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
     }
 
@@ -308,6 +386,7 @@
         View product
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
+      <a href="#demo" class="hero-cta secondary">View MVP mockup</a>
       <a href="mailto:office@software-hub.org" class="hero-cta secondary">Contact us</a>
     </div>
   </div>
@@ -366,6 +445,36 @@
       <span>04</span>
       <h3>Export</h3>
       <p>Results are converted into structured inventory data for dashboards, APIs or CSV exports.</p>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <p class="section-label fade-in">// MVP Mockup</p>
+  <h2 class="section-title fade-in">How the product workflow will look</h2>
+  <p class="section-desc fade-in">The first MVP is planned as a web-based workflow: users upload or capture an image, the recognition pipeline detects visible parts, and the dashboard returns counts and structured inventory data for review.</p>
+
+  <div class="mockup-shell fade-in">
+    <div class="mockup-topbar">
+      <div class="mockup-dots"><span></span><span></span><span></span></div>
+      <span>Brick Recognition Dashboard — MVP preview</span>
+    </div>
+    <div class="mockup-content">
+      <div class="mockup-panel">
+        <h3>Input image</h3>
+        <div class="mockup-upload">
+          Camera image / upload area<br />white background + mixed brick parts
+        </div>
+      </div>
+      <div class="mockup-panel">
+        <h3>Recognition result</h3>
+        <div class="mockup-result">
+          <div class="result-row"><strong>Detected parts</strong><span>128</span></div>
+          <div class="result-row"><strong>Duplicate-safe count</strong><span class="status-pill">enabled</span></div>
+          <div class="result-row"><strong>Classification</strong><span>shape + color</span></div>
+          <div class="result-row"><strong>Export</strong><span>CSV / API</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -460,6 +569,27 @@
   </div>
 </section>
 
+<section id="roadmap">
+  <p class="section-label fade-in">// Product status</p>
+  <h2 class="section-title fade-in">MVP development roadmap</h2>
+  <p class="section-desc fade-in">Software-Hub is currently in the early MVP phase. The goal is to validate the recognition workflow first, then improve accuracy, usability and deployment scalability.</p>
+
+  <div class="roadmap-list">
+    <div class="roadmap-item fade-in">
+      <h3>Phase 1 — Recognition pipeline</h3>
+      <p>Build the first image preprocessing, object detection and duplicate-safe counting workflow for controlled camera images.</p>
+    </div>
+    <div class="roadmap-item fade-in">
+      <h3>Phase 2 — Review dashboard</h3>
+      <p>Create a web interface where users can review detections, correct results and export inventory data.</p>
+    </div>
+    <div class="roadmap-item fade-in">
+      <h3>Phase 3 — Cloud MVP</h3>
+      <p>Deploy scalable storage, APIs, background processing and monitoring for real test users.</p>
+    </div>
+  </div>
+</section>
+
 <section id="company">
   <p class="section-label fade-in">// Company</p>
   <h2 class="section-title fade-in">About Software-Hub</h2>
@@ -471,10 +601,34 @@
       <p>For inquiries, partnership discussions or technical questions, contact us at <strong>office@software-hub.org</strong>.</p>
     </div>
     <div class="about-stats">
-      <div class="stat-card"><div class="stat-number">AT</div><div class="stat-label">Austria</div></div>
-      <div class="stat-card"><div class="stat-number">MVP</div><div class="stat-label">Product stage</div></div>
-      <div class="stat-card"><div class="stat-number">AI</div><div class="stat-label">Recognition focus</div></div>
-      <div class="stat-card"><div class="stat-number">B2B</div><div class="stat-label">Reseller workflows</div></div>
+      <div class="stat-card"><div class="stat-number">Austria</div><div class="stat-label">Company location</div></div>
+      <div class="stat-card"><div class="stat-number">MVP</div><div class="stat-label">Product development stage</div></div>
+      <div class="stat-card"><div class="stat-number">AI</div><div class="stat-label">Recognition technology focus</div></div>
+      <div class="stat-card"><div class="stat-number">B2B</div><div class="stat-label">Reseller and sorting workflows</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="legal">
+  <p class="section-label fade-in">// Legal & Contact</p>
+  <h2 class="section-title fade-in">Company information</h2>
+  <p class="section-desc fade-in">Software-Hub is operated from Styria, Austria. For business inquiries, product questions or AWS-related verification, please contact us by email.</p>
+
+  <div class="grid">
+    <div class="card fade-in">
+      <div class="card-icon">🏢</div>
+      <h3>Software-Hub</h3>
+      <p>Early-stage software project focused on AI-powered recognition systems and automation software.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📍</div>
+      <h3>Location</h3>
+      <p>Styria, Austria</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">✉️</div>
+      <h3>Email</h3>
+      <p>office@software-hub.org</p>
     </div>
   </div>
 </section>
