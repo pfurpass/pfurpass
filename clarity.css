@@ -353,7 +353,7 @@ html{scroll-behavior:smooth}
 .alert[hidden]{display:none}
 
 /* ---------- projects ---------- */
-.project{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:0}
+.project{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:0}
 .project-figure{
   background:var(--navy);border-right:1px solid var(--g-400);
   display:flex;align-items:center;justify-content:center;padding:20px;
